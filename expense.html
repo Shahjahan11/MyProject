@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Expense Page</title>
+  <style>
+    *{
+      background-color:darkkhaki;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .oporer_part
+    {
+     text-align: center;
+     font-size: 50px;
+
+    } 
+    h1 {
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      border: 200px;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid crimson;
+    }
+
+    th {
+      background-color:sienna;
+    }
+
+    tr{
+      font-size: 40px;
+      /* background-color:sienna; */
+
+    }
+    .table_part
+    {
+      color:black;
+       box-shadow: rgba(0, 0, 0, 0.9) 0px 5px 15px; 
+    }
+
+    .total {
+      font-weight: bold;
+      color: crimson;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="oporer_part">Expense</h1>
+
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Description</th>
+      <th>Person</th>
+    </tr>
+    <tr>
+      <td>2023-07-01</td>
+      <td>$50</td>
+      <td>Groceries</td>
+      <td>John</td>
+    </tr>
+    <tr>
+      <td>2023-07-02</td>
+      <td>$30</td>
+      <td>Restaurant</td>
+      <td>Sarah</td>
+    </tr>
+    <tr>
+      <td>2023-07-04</td>
+      <td>$20</td>
+      <td>Transportation</td>
+      <td>Mike</td>
+    </tr>
+    <tr class="total">
+      <td></td>
+      <td>$100</td>
+      <td>Total Expenses</td>
+      <td></td>
+    </tr>
+  </table>
+
+</body>
+</html>

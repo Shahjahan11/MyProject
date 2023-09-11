@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bill Payment Reminder</title>
+  <style>
+    *
+    {
+      background-color:darkkhaki;
+      
+    }
+    .oporer_part
+    {
+     text-align: center;
+     font-size: 50px;
+
+    } 
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      border: 20px;
+    }
+    
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    
+    }
+    
+    th {
+      background-color:sienna;
+      
+    }
+
+     tr{
+      font-size: 40px;
+    }
+    
+
+    tr:hover
+    {
+      /* font-family:cursive; */
+    } 
+    
+    .overdue {
+      background-color:darkorange;
+
+    }
+    
+    .upcoming {
+      background-color:darkslategray;
+
+    }
+    .Pending
+    {
+      background-color:sienna;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="oporer_part">Bill Payment Reminder</h1>
+  
+  <table>
+    <tr>
+      <th>Bill</th>
+      <th>Due Date</th>
+      <th>Amount</th>
+      <th>Status</th>
+    </tr>
+    <tr class="overdue">
+      <td>Electricity</td>
+      <td>2023-06-15</td>
+      <td>$100</td>
+      <td>Overdue</td>
+    </tr>
+    <tr class="overdue">
+      <td>Internet</td>
+      <td>2023-06-20</td>
+      <td>$50</td>
+      <td>Overdue</td>
+    </tr>
+    <tr class="upcoming">
+      <td>Phone</td>
+      <td>2023-07-10</td>
+      <td>$80</td>
+      <td>Upcoming</td>
+    </tr>
+    <tr class="Pending">
+      <td>Water</td>
+      <td>2023-07-15</td>
+      <td>$70</td>
+      <td>Pending</td>
+    </tr>
+  </table>
+</body>
+</html>
