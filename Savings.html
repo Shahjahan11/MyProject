@@ -1,81 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Savings</title>
-  <style>
-   *{
-      background-color:darkkhaki;
-      
-    }
-    .oporer_part
-    {
-     text-align: center;
-     font-size: 50px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings page</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
 
-    } 
-    
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+*{
+      background-color:darkkhaki;
+}
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
+      padding: 30px;
     }
 
-    h1 {
-      color: #333;
-    }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-weight: bold;
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      border: 200px;
-      
-    }
+th, td {
+    border: 1px solid #ddd;
+    padding: 18px;
+    text-align: center;
+    font-size:20px;
+}
 
-    th, td {
-      padding: 15px;
-      text-align: left;
-      border-bottom: 1px solid crimson;
-    }
+th {
+    background-color: #f2f2f2;
+}
 
-    th {
-      background-color:sienna;
-    }
+td[contenteditable="true"] {
+    cursor: pointer;
+}
 
-    tr{
-      font-size: 40px;
-      /* background-color:sienna; */
+.remove-row {
+    background-color: #ff4136;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
 
-    }
-    .table_part
-    {
-      color:black;
-       /* box-shadow: rgba(0, 0, 0, 0.9) 0px 5px 15px;  */
-    }
+#add-row-button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color:chocolate
+}
 
-  </style>
+#total-income {
+    font-weight: bold;
+}
+
+        </style>
 </head>
 <body>
-  <h1 class="oporer_part">Savings</h1>
-<div class="table_part">
-  <table>
-    <tr>
-      <th>Period</th>
-      <th>Amount</th>
-    </tr>
-    <tr>
-      <td>January</td>
-      <td>$500</td>
-    </tr>
-    <tr>
-      <td>February</td>
-      <td>$700</td>
-    </tr>
-    <tr>
-      <td>March</td>
-      <td>$800</td>
-    </tr>
-  </table>
-</div>
+    <div class="container">
+        <h1>Savings</h1>
+        <table id="income-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Period</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td contenteditable="true">2023-01-29</td>
+                    <td contenteditable="true">January</td>
+                    <td contenteditable="true">2000</td>
+                    <td><button class="remove-row">Remove</button></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">2023-02-30</td>
+                    <td contenteditable="true">February</td>
+                    <td contenteditable="true">1700</td>
+                    <td><button class="remove-row">Remove</button></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">2023-03-30</td>
+                    <td contenteditable="true">March</td>
+                    <td contenteditable="true">700</td>
+                    <td><button class="remove-row">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="add-row-button">Add Savings</button>
+        <p id="total-income">Total Savings: <span >4400</span></p>
+    </div>
+    <script >
+        
+const incomeTable = document.getElementById('income-table');
+const addRowButton = document.getElementById('add-row-button');
+const totalIncomeElement = document.getElementById('total-income');
+const removeButtons = document.querySelectorAll('.remove-row');
 
+
+incomeTable.addEventListener('input', updateTotal);
+function updateTotal() {
+    let totalIncome = 0;
+    const rows = incomeTable.getElementsByTagName('tr');
+    for (let i = 1; i < rows.length; i++) { 
+        const cells = rows[i].getElementsByTagName('td');
+        const date = cells[0].textContent;
+        const description = cells[1].textContent;
+        const amount = parseFloat(cells[2].textContent) || 0;
+        totalIncome += amount;
+    }
+    totalIncomeElement.textContent = totalIncome.toFixed(2);
+}
+
+
+function addRow() {
+    const newRow = incomeTable.insertRow(-1);
+    newRow.innerHTML = `
+        <td contenteditable="true">New Date</td>
+        <td contenteditable="true">New Description</td>
+        <td contenteditable="true">0</td>
+        <td><button class="remove-row">Remove</button></td>
+    `;
+    newRow.addEventListener('input', updateTotal);
+    const removeButton = newRow.querySelector('.remove-row');
+    removeButton.addEventListener('click', removeRow);
+}
+
+
+function removeRow() {
+    const row = this.closest('tr');
+    row.remove();
+    updateTotal();
+}
+
+removeButtons.forEach(button => {
+    button.addEventListener('click', removeRow);
+});
+addRowButton.addEventListener('click', addRow);
+
+    </script>
 </body>
 </html>
