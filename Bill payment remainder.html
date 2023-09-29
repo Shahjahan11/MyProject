@@ -1,97 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Bill Payment Reminder</title>
-  <style>
-    *
-    {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill remainder Page</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+*{
       background-color:darkkhaki;
-      
-    }
-    .oporer_part
-    {
-     text-align: center;
-     font-size: 50px;
-
-    } 
-
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      border: 20px;
-    }
-    
-    th, td {
-      padding: 15px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    
-    }
-    
-    th {
-      background-color:sienna;
-      
+}
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
     }
 
-     tr{
-      font-size: 40px;
-    }
-    
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-weight: bold;
+}
 
-    tr:hover
-    {
-      /* font-family:cursive; */
-    } 
-    
-    .overdue {
-      background-color:darkorange;
+th, td {
+    border: 1px solid #ddd;
+    padding: 18px;
+    text-align: center;
+    font-size:20px;
+}
 
-    }
-    
-    .upcoming {
-      background-color:darkslategray;
+th {
+    background-color: #f2f2f2;
+}
 
-    }
-    .Pending
-    {
-      background-color:sienna;
-    }
-  </style>
+td[contenteditable="true"] {
+    cursor: pointer;
+}
+
+.remove-row {
+    background-color: #ff4136;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#add-row-button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color:chocolate
+}
+
+#total-income {
+    font-weight: bold;
+}
+
+        </style>
 </head>
 <body>
-  <h1 class="oporer_part">Bill Payment Reminder</h1>
-  
-  <table>
-    <tr>
-      <th>Bill</th>
-      <th>Due Date</th>
-      <th>Amount</th>
-      <th>Status</th>
-    </tr>
-    <tr class="overdue">
-      <td>Electricity</td>
-      <td>2023-06-15</td>
-      <td>$100</td>
-      <td>Overdue</td>
-    </tr>
-    <tr class="overdue">
-      <td>Internet</td>
-      <td>2023-06-20</td>
-      <td>$50</td>
-      <td>Overdue</td>
-    </tr>
-    <tr class="upcoming">
-      <td>Phone</td>
-      <td>2023-07-10</td>
-      <td>$80</td>
-      <td>Upcoming</td>
-    </tr>
-    <tr class="Pending">
-      <td>Water</td>
-      <td>2023-07-15</td>
-      <td>$70</td>
-      <td>Pending</td>
-    </tr>
-  </table>
+    <div class="container">
+        <h1>Bill Payment Remainder</h1>
+        <table id="income-table">
+            <thead>
+                <tr>
+                    <th>Bill</th>
+                    <th>Due Date</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td contenteditable="true">Electricity</td>
+                    <td contenteditable="true">2023-06-15</td>
+                    <td contenteditable="true">1000</td>
+                    <td contenteditable="true">Overdue</td>
+                    <td><button class="remove-row">Remove</button></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Internet</td>
+                    <td contenteditable="true">2023-06-15</td>
+                    <td contenteditable="true">800</td>
+                    <td contenteditable="true">Overdue</td>
+                    <td><button class="remove-row">Remove</button></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Phone</td>
+                    <td contenteditable="true">2023-06-15</td>
+                    <td contenteditable="true">500</td>
+                    <td contenteditable="true">Upcoming</td>
+                    <td><button class="remove-row">Remove</button></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Water</td>
+                    <td contenteditable="true">2023-06-15</td>
+                    <td contenteditable="true">200</td>
+                    <td contenteditable="true">Pending</td>
+                    <td><button class="remove-row">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="add-row-button">Add Bill </button>
+        <p id="total-income">Total Bill: <span >2500</span></p>
+    </div>
+    <script >
+        
+const incomeTable = document.getElementById('income-table');
+const addRowButton = document.getElementById('add-row-button');
+const totalIncomeElement = document.getElementById('total-income');
+const removeButtons = document.querySelectorAll('.remove-row');
+
+
+incomeTable.addEventListener('input', updateTotal);
+function updateTotal() {
+    let totalIncome = 0;
+    const rows = incomeTable.getElementsByTagName('tr');
+    for (let i = 1; i < rows.length; i++) { 
+        const cells = rows[i].getElementsByTagName('td');
+        const date = cells[0].textContent;
+        const description = cells[1].textContent;
+        const amount = parseFloat(cells[2].textContent) || 0;
+        totalIncome += amount;
+    }
+    totalIncomeElement.textContent = totalIncome.toFixed(2);
+}
+
+
+function addRow() {
+    const newRow = incomeTable.insertRow(-1);
+    newRow.innerHTML = `
+        <td contenteditable="true">Bill</td>
+        <td contenteditable="true">Date</td>
+        <td contenteditable="true">0</td>
+        <td contenteditable="true">status</td>
+        <td><button class="remove-row">Remove</button></td>
+    `;
+    newRow.addEventListener('input', updateTotal);
+    const removeButton = newRow.querySelector('.remove-row');
+    removeButton.addEventListener('click', removeRow);
+}
+
+
+function removeRow() {
+    const row = this.closest('tr');
+    row.remove();
+    updateTotal();
+}
+
+removeButtons.forEach(button => {
+    button.addEventListener('click', removeRow);
+});
+addRowButton.addEventListener('click', addRow);
+
+    </script>
 </body>
 </html>
+
