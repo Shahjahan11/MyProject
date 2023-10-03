@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,47 +8,48 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
- 
-    *
-    {
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
-    .hnav_upper
-    {
-        background-color:chocolate;
-    display: flex;
-    height:70px;
-    width: 100%;
-    color: white;
+
+    .hnav_upper {
+        position: fixed;
+        background-color: chocolate;
+        display: flex;
+        height: 70px;
+        width: 100%;
+        color: white;
 
     }
-    .hnav_upper_left
-    {
+
+    .hnav_upper_left {
         align-items: center;
         gap: 8px;
         width: 33%;
         padding: 15px;
         font-size: 30px;
     }
-    .hnav_upper_middle
-    {
+
+    .hnav_upper_middle {
         /* background-color: brown; */
         width: 34%;
         text-align: center;
-        padding-top:15px;
+        padding-top: 15px;
     }
-    .hnav_upper_right
-    {
+
+    .hnav_upper_right {
 
         width: 33%;
         text-align: end;
         justify-content: center;
+        padding-right: 20px;
+        padding-top: 20px;
 
     }
-    .profile
-    {
+
+    .profile {
         height: 65px;
         padding: 0%;
         border-radius: 100%;
@@ -56,140 +58,388 @@
     }
 
     form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-  box-sizing: border-box;
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 80%;
+        background: #f1f1f1;
+        box-sizing: border-box;
 
-}
+    }
 
-/* Style the submit button */
-form.example button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: #2196F3;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
-}
+    /* Style the submit button */
+    form.example button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #2196F3;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none;
+        /* Prevent double borders */
+        cursor: pointer;
+    }
 
-form.example button:hover {
-  background: #0b7dda;
-}
+    form.example button:hover {
+        background: #0b7dda;
+    }
 
-/* Clear floats */
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-.middle{
-    width: 100%;
-    background-color:rgb(19,77,65);
-    height:800px;
-    color: white;
-    height: 1000px;
-}
-.show1
-{
-    font-size: 50px;
-    text-align: center;
-    padding-top:40px;
-}
-.show2
-{
-    font-size: 20px;
-    text-align: center;
-    padding: 10px;
-}
-.middle_down
-{
+    /* Clear floats */
+    form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
 
-    height: 600px;
-    width: 70%;
-    font-size: 20px;
-    display:grid;
-    grid-template-columns: auto auto auto;
-    margin: auto;
-    place-items:center;
-    margin-top: 70px;
-    /* background-color:sienna; */
-    border-radius: 20px;
-    box-shadow: 0 0 50px rgba(0, 0, 0, .3);
+    .middle {
+        width: 100%;
+        background-color: rgb(19, 77, 65);
 
-}
-.design
-{
-    width: 150px;
-    height: 70px;
-    background-color:seagreen;
-    color:burlywood;
-    padding: 70px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    font-weight: bold;
-    box-shadow: -2px  5px #888888;
-    border-radius: 10px;
+        color: white;
+        height: 1000px;
+    }
 
-}
-.design:hover{
-    background-color:brown;
-}
-a{
-    text-decoration: none;
-    color: antiquewhite;
-}
+    .show1 {
+        font-size: 50px;
+        text-align: center;
+        padding-top: 75px;
+    }
 
+    .show2 {
+        font-size: 20px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .middle_down {
+
+        height: 600px;
+        width: 70%;
+        font-size: 20px;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        margin: auto;
+        place-items: center;
+        margin-top: 70px;
+        /* background-color:sienna; */
+        border-radius: 20px;
+        box-shadow: 0 0 50px rgba(0, 0, 0, .3);
+
+    }
+
+    .design {
+        width: 150px;
+        height: 70px;
+        background-color: seagreen;
+        color: burlywood;
+        padding: 70px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        font-weight: bold;
+        box-shadow: -2px 5px #888888;
+        border-radius: 10px;
+
+    }
+
+    .design:hover {
+        background-color: brown;
+    }
+
+    a {
+        text-decoration: none;
+        color: antiquewhite;
+    }
+
+
+    .user_pic {
+        width: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-left: 30px;
+    }
+
+    .user_sub_manu_wrap {
+        position: absolute;
+        top: 100%;
+        right: 10%;
+        width: 320px;
+        max-height: 400px;
+        overflow: hidden;
+        transition: max-height 0.5s;
+    }
+
+    .user_sub_manu_wrap.open_menu {
+        max-height: 400px;
+    }
+
+    .user_info {
+        display: flex;
+        align-items: center;
+    }
+
+    .user_info h2 {
+        font-weight: 500;
+    }
+
+    .user_sub_manu {
+        background: #fff;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 20px;
+
+    }
+
+
+    .user_info img {
+        width: 60px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+
+    .user_sub_manu hr {
+        border: 0;
+        height: 1px;
+        width: 100%;
+        background: #ccc;
+        margin: 15px 0 10px;
+
+    }
+
+    .user_sub_manu_link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #525252;
+        margin: 12px 0;
+    }
+
+    .user_sub_manu_link p {
+        width: 100%;
+    }
+
+    .user_sub_manu_link img {
+        width: 40px;
+        background: #e5e5e5;
+        border-radius: 50%;
+        padding: 8px;
+        margin-right: 15px;
+
+    }
+
+    .user_sub_manu_link span {
+        font-size: 22px;
+        transition: transform 0.5s;
+    }
+
+    .user_sub_manu_link:hover span {
+        transform: translateX(5px);
+    }
+
+    .user_sub_manu_link:hover p {
+        font-weight: 600;
+    }
+
+    /* Profile Part start  */
+
+    .user_sub_manu_wrap {
+        color: red;
+        background-color: #445D48;
+        position: absolute;
+        top: 70px;
+        right: 12px;
+        width: 320px;
+        max-height: 400px;
+        overflow: hidden;
+        transition: max-height 0.5s;
+        visibility: hidden;
+        padding: 10px;
+        text-align: left;
+
+    }
+
+    .addHero {
+        visibility: visible;
+
+
+    }
+
+    .user_sub_manu_wrap.open_menu {
+        max-height: 400px;
+    }
+
+    .user_info {
+        display: flex;
+        align-items: center;
+    }
+
+    .user_info h2 {
+        font-weight: 500;
+    }
+
+    .user_sub_manu {
+        background: #fff;
+        padding: 20px;
+        margin: 10px;
+    }
+
+
+    .user_info img {
+        width: 60px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+
+    .user_sub_manu hr {
+        border: 0;
+        height: 1px;
+        width: 100%;
+        background: #ccc;
+        margin: 15px 0 10px;
+
+    }
+
+    .user_sub_manu_link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        margin: 12px 0;
+    }
+
+    .user_sub_manu_link p {
+        width: 100%;
+    }
+
+    .user_sub_manu_link img {
+        width: 40px;
+        background: #e5e5e5;
+        border-radius: 50%;
+        padding: 8px;
+        margin-right: 15px;
+
+    }
+
+    .user_sub_manu_link span {
+        font-size: 22px;
+        transition: transform 0.5s;
+    }
+
+    .user_sub_manu_link:hover span {
+        transform: translateX(5px);
+    }
+
+    .user_sub_manu_link:hover p {
+        font-weight: 600;
+    }
+
+    /* Profile part end  */
 </style>
 
 <body>
     <nav>
         <div class="hnav_upper">
             <div class="hnav_upper_left">
-            <hi>TAKA</hi>
+                <hi>TAKA</hi>
             </div>
             <div class="hnav_upper_middle">
                 <form class="example" action="action_page.php">
                     <input type="text" placeholder="Search.." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
-                  </form>
+                </form>
             </div>
             <div class="hnav_upper_right">
-                <a href="profile.html">
-                <img class="profile" src="money_logo4.avif" alt="profile icon">
-                </a>
+                <img src="pictures/taka_2.jpeg" class="user_pic" onclick="setStyle()">
+                <!-- Profile part start  -->
+                <div class="user_sub_manu_wrap" id="subMenu">
+                    <div class="user_sub_manu">
+                        <div class="user_info">
+                            <img src="pictures/taka_3.jpg">
+                            <h2> Shahjahan</h2>
+                        </div>
+                        <hr>
+                    </div>
+                    <a href="#" class="user_sub_manu_link">
+                        <img src="pictures/tranproject_logo2.png">
+                        <p>Edit Profile</p>
+                        <span>></span>
+                    </a>
+
+                    <a href="#" class="user_sub_manu_link">
+                        <img src="pictures/setting.png">
+                        <p> Settings & Privacy</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="user_sub_manu_link">
+                        <img src="pictures/help.png">
+                        <p>Help & Support</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="user_sub_manu_link">
+                        <img src="pictures/logout.png">
+                        <p> Logout</p>
+                        <span>></span>
+                    </a>
+                </div>
+
+                <!-- Profile part end  -->
+
             </div>
         </div>
-        </nav>
+    </nav>
+    <main class="main">
         <div class="middle">
-        <p class="show1">Guiding you through life’s financial journey..</p>
-        <p class="show2">Compare rates, crunch numbers and get expert guidance for life’s biggest financial moments..</p>
-        <div class="middle_down">
+            <p class="show1">Guiding you through life’s financial journey..</p>
+            <p class="show2">Compare rates, crunch numbers and get expert guidance for life’s biggest financial
+                moments..</p>
+            <div class="middle_down">
 
-            <!-- <li class="active"><a href="Home.html" target="blank"><i class="fa fa-home" ></i> Home</a></li> -->
-                    <div class="design" class="active"> <a href="income.html" >Income</a></div>
-                    <div class="design" class="active"><a href="expense.html" > Expense </a></div>
-                    <div class="design" class="active"><a href="Budget.html" > Budget </a></div>
-                    <div class="design" class="active"><a href="Savings.html" > Savings </a></div>
+                <!-- <li class="active"><a href="Home.html" target="blank"><i class="fa fa-home" ></i> Home</a></li> -->
+                <div class="design" class="active"> <a href="income.html">Income</a></div>
+                <div class="design" class="active"><a href="expense.html"> Expense </a></div>
+                <div class="design" class="active"><a href="Budget.html"> Budget </a></div>
+                <div class="design" class="active"><a href="Savings.html"> Savings </a></div>
 
-                    <div class="design" class="active"><a href="#" >Debt </a></div>
+                <div class="design" class="active"><a href="#">Debt </a></div>
 
-                    <div class="design" class="active"><a href="investment.html" > Investment </a></div>
+                <div class="design" class="active"><a href="investment.html"> Investment </a></div>
 
-                    <div class="design" class="active"><a href="Financial Dashboard.html" > Financial Dashboard </a></div>
+                <div class="design" class="active"><a href="Financial Dashboard.html"> Financial Dashboard </a></div>
 
-                    <div class="design" class="active"><a href="Account Aggregation.html" > Account Aggregation </a></div>
-                    <div class="design" class="active"> <a href="Bill payment remainder.html" > Bill Payment Remainder </a></div>
-            </div>
+                <div class="design" class="active"><a href="Account Aggregation.html"> Account Aggregation </a></div>
+                <div class="design" class="active"> <a href="Bill payment remainder.html"> Bill Payment Remainder </a>
                 </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        let subMenu = document.getElementById("subMenu");
+
+        function addHero() {
+            subMenu.classList.add("addHero");
+        }
+
+        function removeHero() {
+            subMenu.classList.remove("addHero");
+        }
+
+        function setStyle() {
+            if (subMenu.classList.contains("addHero")) {
+                removeHero();
+            } else {
+                addHero();
+            }
+
+
+        }
+
+    </script>
 </body>
+
 </html>
